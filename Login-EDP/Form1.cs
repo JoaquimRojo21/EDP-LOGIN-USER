@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace Login_EDP
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string[,] users = {
-                {"admin", "1234", "Admin"},
+                {"joaquim", "1234", "joaquim"},
                 {"john", "1111", "John"},
             };
 
@@ -52,9 +53,30 @@ namespace Login_EDP
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username/Password");           
+                    DataTable dt = db.ExecuteReturnQuery("select * from tbllogincredentials where use_username = @uname and use_password = @pword",
+                        new MySqlParameter("@uname", tbUsername.Text),
+                        new MySqlParameter("@pword", tbPassword.Text));
+                    
+                    if (dt.Rows.Count == 1) { }
+                    Form2 frm = new Form2();
+                    this.Hide();
+                    frm.Show();
                 }
+            }
+        }
+        MyDatebase db = new MyDatebase();
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            if (db.TestConnection() == true)
+            {
+                MessageBox.Show("Connected Sucessfully");
+            }
+            else
+            {
+                MessageBox.Show("NO");
             }
         }
     }
 }
+            
+       

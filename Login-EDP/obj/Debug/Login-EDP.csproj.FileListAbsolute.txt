@@ -9,3 +9,20 @@ C:\Users\quimr\source\repos\Login-EDP\Login-EDP\obj\Debug\Login_EDP.Form2.resour
 C:\Users\quimr\source\repos\Login-EDP\Login-EDP\obj\Debug\Login-EDP.exe
 C:\Users\quimr\source\repos\Login-EDP\Login-EDP\obj\Debug\Login-EDP.pdb
 C:\Users\quimr\source\repos\Login-EDP\Login-EDP\obj\Debug\Login_EDP.frmLogin.resources
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\Login-EDP.exe.config
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\Login-EDP.exe
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\Login-EDP.pdb
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.csproj.AssemblyReference.cache
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.exe.config
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login_EDP.frmLogin.resources
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login_EDP.Form2.resources
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login_EDP.Properties.Resources.resources
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.csproj.GenerateResource.cache
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.csproj.CoreCompileInputs.cache
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.exe
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.pdb
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\MySql.Data.dll
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\System.Memory.dll
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\bin\Debug\MySql.Data.xml
+C:\Users\COLLEGE STUDENT\Source\Repos\EDP-MIDTERM-LOGIN\Login-EDP\obj\Debug\Login-EDP.csproj.Up2Date
