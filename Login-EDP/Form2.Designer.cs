@@ -50,11 +50,11 @@
             this.btnRegister.BackgroundImage = global::Login_EDP.Properties.Resources.download__8_;
             this.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRegister.Location = new System.Drawing.Point(74, 75);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegister.Location = new System.Drawing.Point(99, 92);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Padding = new System.Windows.Forms.Padding(68, 73, 68, 73);
-            this.btnRegister.Size = new System.Drawing.Size(158, 146);
+            this.btnRegister.Padding = new System.Windows.Forms.Padding(91, 90, 91, 90);
+            this.btnRegister.Size = new System.Drawing.Size(211, 180);
             this.btnRegister.TabIndex = 0;
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -64,10 +64,10 @@
             this.btnStore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnStore.BackgroundImage = global::Login_EDP.Properties.Resources.download__10_;
             this.btnStore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnStore.Location = new System.Drawing.Point(236, 75);
-            this.btnStore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStore.Location = new System.Drawing.Point(315, 92);
+            this.btnStore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStore.Name = "btnStore";
-            this.btnStore.Size = new System.Drawing.Size(158, 146);
+            this.btnStore.Size = new System.Drawing.Size(211, 180);
             this.btnStore.TabIndex = 1;
             this.btnStore.UseVisualStyleBackColor = false;
             // 
@@ -76,10 +76,10 @@
             this.btnPlacebook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnPlacebook.BackgroundImage = global::Login_EDP.Properties.Resources.download__5_;
             this.btnPlacebook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPlacebook.Location = new System.Drawing.Point(398, 75);
-            this.btnPlacebook.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPlacebook.Location = new System.Drawing.Point(531, 92);
+            this.btnPlacebook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlacebook.Name = "btnPlacebook";
-            this.btnPlacebook.Size = new System.Drawing.Size(158, 146);
+            this.btnPlacebook.Size = new System.Drawing.Size(211, 180);
             this.btnPlacebook.TabIndex = 2;
             this.btnPlacebook.UseVisualStyleBackColor = false;
             // 
@@ -88,10 +88,10 @@
             this.btnVendors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnVendors.BackgroundImage = global::Login_EDP.Properties.Resources.download__6_;
             this.btnVendors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVendors.Location = new System.Drawing.Point(74, 226);
-            this.btnVendors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVendors.Location = new System.Drawing.Point(99, 278);
+            this.btnVendors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVendors.Name = "btnVendors";
-            this.btnVendors.Size = new System.Drawing.Size(158, 146);
+            this.btnVendors.Size = new System.Drawing.Size(211, 180);
             this.btnVendors.TabIndex = 3;
             this.btnVendors.UseVisualStyleBackColor = false;
             // 
@@ -100,22 +100,23 @@
             this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnUsers.BackgroundImage = global::Login_EDP.Properties.Resources.download__12_;
             this.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUsers.Location = new System.Drawing.Point(236, 226);
-            this.btnUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsers.Location = new System.Drawing.Point(315, 278);
+            this.btnUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(158, 146);
+            this.btnUsers.Size = new System.Drawing.Size(211, 180);
             this.btnUsers.TabIndex = 4;
             this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnTime
             // 
             this.btnTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnTime.BackgroundImage = global::Login_EDP.Properties.Resources.download__14_;
             this.btnTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTime.Location = new System.Drawing.Point(398, 226);
-            this.btnTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime.Location = new System.Drawing.Point(531, 278);
+            this.btnTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTime.Name = "btnTime";
-            this.btnTime.Size = new System.Drawing.Size(158, 146);
+            this.btnTime.Size = new System.Drawing.Size(211, 180);
             this.btnTime.TabIndex = 5;
             this.btnTime.UseVisualStyleBackColor = false;
             // 
@@ -124,10 +125,9 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label1.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 196);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(155, 241);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 18);
+            this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Register";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,10 +137,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label2.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(265, 196);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(353, 241);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 18);
+            this.label2.Size = new System.Drawing.Size(130, 23);
             this.label2.TabIndex = 7;
             this.label2.Text = "Store Status";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,10 +149,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label3.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(436, 196);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(581, 241);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 18);
+            this.label3.Size = new System.Drawing.Size(113, 23);
             this.label3.TabIndex = 8;
             this.label3.Text = "Placebook";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -163,10 +161,9 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label4.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(117, 348);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(156, 428);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 18);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 9;
             this.label4.Text = "Vendors";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,10 +173,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label5.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(290, 348);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(387, 428);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 18);
+            this.label5.Size = new System.Drawing.Size(67, 23);
             this.label5.TabIndex = 10;
             this.label5.Text = "Users";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,10 +185,9 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label6.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(433, 348);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(577, 428);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 18);
+            this.label6.Size = new System.Drawing.Size(124, 23);
             this.label6.TabIndex = 11;
             this.label6.Text = "Time Clock";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,10 +198,9 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Showcard Gothic", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(218, 17);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(291, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(201, 44);
+            this.label7.Size = new System.Drawing.Size(247, 53);
             this.label7.TabIndex = 12;
             this.label7.Text = "Welcome!";
             // 
@@ -215,10 +209,10 @@
             this.btnLogout.BackColor = System.Drawing.Color.White;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Location = new System.Drawing.Point(16, 325);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Location = new System.Drawing.Point(21, 400);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(46, 47);
+            this.btnLogout.Size = new System.Drawing.Size(61, 58);
             this.btnLogout.TabIndex = 13;
             this.btnLogout.Text = "<";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -226,11 +220,11 @@
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::Login_EDP.Properties.Resources.Screenshot_2026_03_28_020617;
-            this.ClientSize = new System.Drawing.Size(609, 396);
+            this.ClientSize = new System.Drawing.Size(812, 487);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -245,7 +239,7 @@
             this.Controls.Add(this.btnPlacebook);
             this.Controls.Add(this.btnStore);
             this.Controls.Add(this.btnRegister);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "  ";
             this.Load += new System.EventHandler(this.Form2_Load);

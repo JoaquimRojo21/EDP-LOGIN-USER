@@ -13,6 +13,7 @@ namespace Login_EDP
 {
     public partial class frmLogin : Form
     {
+        MyDatabase db = new MyDatabase();
         public frmLogin()
         {
             InitializeComponent();
@@ -20,60 +21,63 @@ namespace Login_EDP
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string[,] users = {
-                {"joaquim", "1234", "joaquim"},
-                {"john", "1111", "John"},
-            };
 
-            if (tbUsername.Text == "")
+            if (string.IsNullOrWhiteSpace(tbUsername.Text) || string.IsNullOrWhiteSpace(tbPassword.Text))
             {
-                MessageBox.Show("Enter username");
+                MessageBox.Show("Enter username and password");
                 return;
             }
 
-            if (tbPassword.Text == "")
-            {
-                MessageBox.Show("Enter password");
-                return;
-            }
 
-            for (int i = 0; i < users.GetLength(0); i++)
+            string sql = "SELECT * FROM tbllogincredentials WHERE user_username = @uname AND user_password = @pword";
+
+
+            MySqlParameter[] loginParams = {
+        new MySqlParameter("@uname", tbUsername.Text),
+        new MySqlParameter("@pword", tbPassword.Text)
+    };
+
+            try
             {
-                if (tbUsername.Text == users[i, 0] &&
-                    tbPassword.Text == users[i, 1])
+
+                DataTable dt = db.ExecuteReturnQuery(sql, loginParams);
+
+                if (dt.Rows.Count == 1)
                 {
-                    MessageBox.Show("Welcome " + users[i, 2]);
+
+                    string uName = dt.Rows[0]["user_username"].ToString();
+                    MessageBox.Show("Welcome " + uName);
 
                     Form2 home = new Form2();
-                    home.userName = users[i, 2];
-
+                    home.userName = uName; 
                     this.Hide();
                     home.Show();
-                    break;
                 }
                 else
                 {
-                    DataTable dt = db.ExecuteReturnQuery("select * from tbllogincredentials where use_username = @uname and use_password = @pword",
-                        new MySqlParameter("@uname", tbUsername.Text),
-                        new MySqlParameter("@pword", tbPassword.Text));
-                    
-                    if (dt.Rows.Count == 1) { }
-                    Form2 frm = new Form2();
-                    this.Hide();
-                    frm.Show();
+
+                    MessageBox.Show("Invalid Username or Password");
                 }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Connection Error: " + ex.Message);
+            }
         }
-        MyDatebase db = new MyDatebase();
+
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
+
             if (db.TestConnection() == true)
             {
-                MessageBox.Show("Connected Sucessfully");
+                MessageBox.Show("Connected Successfully");
             }
             else
             {
-                MessageBox.Show("NO");
+
+                MessageBox.Show("NO: Cannot connect to database. Check XAMPP or DB Name.");
             }
         }
     }

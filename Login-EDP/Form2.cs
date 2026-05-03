@@ -59,5 +59,11 @@ namespace Login_EDP
             frmRegister registerForm = new frmRegister();
             registerForm.Show();          
         }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            frmUser usersForm = new frmUser();
+            usersForm.Show();
+        }
     }
 }
