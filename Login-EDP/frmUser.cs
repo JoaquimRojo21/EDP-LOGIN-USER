@@ -22,7 +22,6 @@ namespace Login_EDP
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
                 string.IsNullOrWhiteSpace(txtLastName.Text) ||
                 string.IsNullOrWhiteSpace(txtUsername.Text) ||
@@ -33,26 +32,24 @@ namespace Login_EDP
                 return;
             }
 
-
-            string sql = "INSERT INTO tbl_registration (firstname, middlename, lastname, email, address, birthdate, username) " +
-                         "VALUES (@fn, @mn, @ln, @em, @ad, @bd, @un)";
-
+            // 1. Siguraduhin na ang column name sa baba (password) ay tugma sa phpMyAdmin
+            string sql = "INSERT INTO tbl_registration (firstname, middlename, lastname, email, address, birthdate, username, password) " +
+                         "VALUES (@fn, @mn, @ln, @em, @ad, @bd, @un, @pw)";
 
             MySqlParameter[] parameters = {
-                new MySqlParameter("@fn", txtFirstName.Text),
-                new MySqlParameter("@mn", txtMiddleName.Text),
-                new MySqlParameter("@ln", txtLastName.Text),
-                new MySqlParameter("@em", txtEmail.Text),
-                new MySqlParameter("@ad", txtAddress.Text),
-                new MySqlParameter("@bd", dtpBirthDate.Value.ToString("yyyy-MM-dd")), // SQL Date format
-                new MySqlParameter("@un", txtUsername.Text)
-            };
+    new MySqlParameter("@fn", txtFirstName.Text),
+    new MySqlParameter("@mn", txtMiddleName.Text),
+    new MySqlParameter("@ln", txtLastName.Text),
+    new MySqlParameter("@em", txtEmail.Text),
+    new MySqlParameter("@ad", txtAddress.Text),
+    new MySqlParameter("@bd", dtpBirthDate.Value.ToString("yyyy-MM-dd")),
+    new MySqlParameter("@un", txtUsername.Text),
+    new MySqlParameter("@pw", txtPassword.Text) // Ito ang magse-save ng password
+};
 
             try
             {
-
                 db.ExecuteNonQuery(sql, parameters);
-
 
                 dgvUsers.Rows.Add(
                     txtFirstName.Text,
@@ -72,6 +69,8 @@ namespace Login_EDP
                 MessageBox.Show("Error saving to database: " + ex.Message);
             }
         }
+
+    
 
         private void ClearAllFields()
         {

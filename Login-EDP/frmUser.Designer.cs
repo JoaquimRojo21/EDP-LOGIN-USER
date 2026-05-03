@@ -51,13 +51,15 @@
             // 
             // dgvUsers
             // 
+            this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(267, 28);
+            this.dgvUsers.Location = new System.Drawing.Point(247, 28);
             this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.Size = new System.Drawing.Size(512, 388);
+            this.dgvUsers.Size = new System.Drawing.Size(548, 388);
             this.dgvUsers.TabIndex = 0;
             // 
             // label1
@@ -186,7 +188,7 @@
             // 
             this.dtpBirthDate.Location = new System.Drawing.Point(27, 269);
             this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpBirthDate.Size = new System.Drawing.Size(214, 22);
             this.dtpBirthDate.TabIndex = 17;
             // 
             // btnSave

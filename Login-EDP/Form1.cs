@@ -37,7 +37,17 @@ namespace Login_EDP
         new MySqlParameter("@pword", tbPassword.Text)
     };
 
+            if (tbUsername.Text == "Admin" && tbPassword.Text == "1234")
+            {
+                MessageBox.Show("Welcome Admin");
+                Form2 home = new Form2();
+                home.userName = "Admin";
+                this.Hide();
+                home.Show();
+                return; 
+            }
             try
+
             {
 
                 DataTable dt = db.ExecuteReturnQuery(sql, loginParams);

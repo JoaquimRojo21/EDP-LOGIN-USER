@@ -120,7 +120,6 @@
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="MyDatabase.cs" />
-    <Compile Include="MyDatebase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
