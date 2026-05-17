@@ -32,7 +32,7 @@ namespace Login_EDP
                 return;
             }
 
-            // 1. Siguraduhin na ang column name sa baba (password) ay tugma sa phpMyAdmin
+
             string sql = "INSERT INTO tbl_registration (firstname, middlename, lastname, email, address, birthdate, username, password) " +
                          "VALUES (@fn, @mn, @ln, @em, @ad, @bd, @un, @pw)";
 
@@ -44,7 +44,7 @@ namespace Login_EDP
     new MySqlParameter("@ad", txtAddress.Text),
     new MySqlParameter("@bd", dtpBirthDate.Value.ToString("yyyy-MM-dd")),
     new MySqlParameter("@un", txtUsername.Text),
-    new MySqlParameter("@pw", txtPassword.Text) // Ito ang magse-save ng password
+    new MySqlParameter("@pw", txtPassword.Text) 
 };
 
             try
@@ -58,7 +58,8 @@ namespace Login_EDP
                     txtEmail.Text,
                     txtAddress.Text,
                     dtpBirthDate.Value.ToShortDateString(),
-                    txtUsername.Text
+                    txtUsername.Text,
+                    txtPassword.Text
                 );
 
                 MessageBox.Show("Successfully saved to Database and Grid!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,9 +98,151 @@ namespace Login_EDP
                 dgvUsers.Columns.Add("colAddress", "Address");
                 dgvUsers.Columns.Add("colBirth", "Birth Date");
                 dgvUsers.Columns.Add("colUser", "Username");
+                dgvUsers.Columns.Add("colPass", "Password");
             }
 
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
+
+
+                txtFirstName.Text = row.Cells["colFN"].Value?.ToString();
+                txtMiddleName.Text = row.Cells["colMN"].Value?.ToString();
+                txtLastName.Text = row.Cells["colLN"].Value?.ToString();
+                txtEmail.Text = row.Cells["colEmail"].Value?.ToString();
+                txtAddress.Text = row.Cells["colAddress"].Value?.ToString();
+
+                if (DateTime.TryParse(row.Cells["colBirth"].Value?.ToString(), out DateTime birthDate))
+                {
+                    dtpBirthDate.Value = birthDate;
+                }
+
+                txtUsername.Text = row.Cells["colUser"].Value?.ToString();
+                txtPassword.Text = row.Cells["colPass"].Value?.ToString();
+
+
+                txtUsername.Enabled = false;
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a user from the grid to update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string sql = "UPDATE tbl_registration SET firstname=@fn, middlename=@mn, lastname=@ln, " +
+                         "email=@em, address=@ad, birthdate=@bd, password=@pw WHERE username=@un";
+
+            MySqlParameter[] parameters = {
+        new MySqlParameter("@fn", txtFirstName.Text),
+        new MySqlParameter("@mn", txtMiddleName.Text),
+        new MySqlParameter("@ln", txtLastName.Text),
+        new MySqlParameter("@em", txtEmail.Text),
+        new MySqlParameter("@ad", txtAddress.Text),
+        new MySqlParameter("@bd", dtpBirthDate.Value.ToString("yyyy-MM-dd")),
+        new MySqlParameter("@pw", txtPassword.Text),
+        new MySqlParameter("@un", txtUsername.Text) 
+    };
+
+            try
+            {
+                db.ExecuteNonQuery(sql, parameters);
+
+                DataGridViewRow currentRow = dgvUsers.CurrentRow;
+                currentRow.Cells["colFN"].Value = txtFirstName.Text;
+                currentRow.Cells["colMN"].Value = txtMiddleName.Text;
+                currentRow.Cells["colLN"].Value = txtLastName.Text;
+                currentRow.Cells["colEmail"].Value = txtEmail.Text;
+                currentRow.Cells["colAddress"].Value = txtAddress.Text;
+                currentRow.Cells["colBirth"].Value = dtpBirthDate.Value.ToShortDateString();
+                currentRow.Cells["colPass"].Value = txtPassword.Text;
+
+                MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtUsername.Enabled = true; 
+                ClearAllFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeactivate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                MessageBox.Show("Please select a user to deactivate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dialog = MessageBox.Show($"Are you sure you want to deactivate {txtUsername.Text}?",
+                "Confirm Deactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+
+                string sql = "UPDATE tbl_registration SET status = 'Inactive' WHERE username = @un";
+                MySqlParameter[] parameters = { new MySqlParameter("@un", txtUsername.Text) };
+
+                try
+                {
+                    db.ExecuteNonQuery(sql, parameters);
+
+
+                    dgvUsers.Rows.Remove(dgvUsers.CurrentRow);
+
+                    MessageBox.Show("User has been deactivated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtUsername.Enabled = true;
+                    ClearAllFields();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deactivating user: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a user from the grid to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dialog = MessageBox.Show("Are you sure you want to PERMANENTLY delete this record?",
+                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.Yes)
+            {
+                string sql = "DELETE FROM tbl_registration WHERE username = @un";
+                MySqlParameter[] parameters = { new MySqlParameter("@un", txtUsername.Text) };
+
+                try
+                {
+                    db.ExecuteNonQuery(sql, parameters);
+
+                    dgvUsers.Rows.Remove(dgvUsers.CurrentRow);
+
+                    MessageBox.Show("Record deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtUsername.Enabled = true;
+                    ClearAllFields();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting database record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
