@@ -48,7 +48,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,7 +207,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(621, 469);
+            this.btnUpdate.Location = new System.Drawing.Point(741, 469);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(114, 38);
             this.btnUpdate.TabIndex = 19;
@@ -218,7 +217,7 @@
             // 
             // btnDeactivate
             // 
-            this.btnDeactivate.Location = new System.Drawing.Point(741, 469);
+            this.btnDeactivate.Location = new System.Drawing.Point(861, 469);
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(114, 38);
             this.btnDeactivate.TabIndex = 20;
@@ -226,22 +225,11 @@
             this.btnDeactivate.UseVisualStyleBackColor = true;
             this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(861, 469);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(114, 38);
-            this.btnDelete.TabIndex = 21;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 534);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
@@ -293,6 +281,5 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDeactivate;
-        private System.Windows.Forms.Button btnDelete;
     }
 }

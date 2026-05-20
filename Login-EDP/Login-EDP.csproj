@@ -200,5 +200,8 @@
   <ItemGroup>
     <None Include="Resources\download %2814%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="db_users_backup.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

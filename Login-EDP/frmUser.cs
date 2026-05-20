@@ -44,7 +44,7 @@ namespace Login_EDP
     new MySqlParameter("@ad", txtAddress.Text),
     new MySqlParameter("@bd", dtpBirthDate.Value.ToString("yyyy-MM-dd")),
     new MySqlParameter("@un", txtUsername.Text),
-    new MySqlParameter("@pw", txtPassword.Text) 
+    new MySqlParameter("@pw", txtPassword.Text)
 };
 
             try
@@ -71,7 +71,7 @@ namespace Login_EDP
             }
         }
 
-    
+
 
         private void ClearAllFields()
         {
@@ -139,18 +139,24 @@ namespace Login_EDP
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Username cannot be empty. Unable to locate record for update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string sql = "UPDATE tbl_registration SET firstname=@fn, middlename=@mn, lastname=@ln, " +
                          "email=@em, address=@ad, birthdate=@bd, password=@pw WHERE username=@un";
 
             MySqlParameter[] parameters = {
-        new MySqlParameter("@fn", txtFirstName.Text),
-        new MySqlParameter("@mn", txtMiddleName.Text),
-        new MySqlParameter("@ln", txtLastName.Text),
-        new MySqlParameter("@em", txtEmail.Text),
-        new MySqlParameter("@ad", txtAddress.Text),
+        new MySqlParameter("@fn", txtFirstName.Text.Trim()),
+        new MySqlParameter("@mn", txtMiddleName.Text.Trim()),
+        new MySqlParameter("@ln", txtLastName.Text.Trim()),
+        new MySqlParameter("@em", txtEmail.Text.Trim()),
+        new MySqlParameter("@ad", txtAddress.Text.Trim()),
         new MySqlParameter("@bd", dtpBirthDate.Value.ToString("yyyy-MM-dd")),
         new MySqlParameter("@pw", txtPassword.Text),
-        new MySqlParameter("@un", txtUsername.Text) 
+        new MySqlParameter("@un", txtUsername.Text.Trim())
     };
 
             try
@@ -158,6 +164,7 @@ namespace Login_EDP
                 db.ExecuteNonQuery(sql, parameters);
 
                 DataGridViewRow currentRow = dgvUsers.CurrentRow;
+
                 currentRow.Cells["colFN"].Value = txtFirstName.Text;
                 currentRow.Cells["colMN"].Value = txtMiddleName.Text;
                 currentRow.Cells["colLN"].Value = txtLastName.Text;
@@ -168,7 +175,7 @@ namespace Login_EDP
 
                 MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                txtUsername.Enabled = true; 
+                txtUsername.Enabled = true;
                 ClearAllFields();
             }
             catch (Exception ex)
@@ -181,47 +188,12 @@ namespace Login_EDP
         {
             if (string.IsNullOrEmpty(txtUsername.Text))
             {
-                MessageBox.Show("Please select a user to deactivate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a user to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult dialog = MessageBox.Show($"Are you sure you want to deactivate {txtUsername.Text}?",
-                "Confirm Deactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialog == DialogResult.Yes)
-            {
-
-                string sql = "UPDATE tbl_registration SET status = 'Inactive' WHERE username = @un";
-                MySqlParameter[] parameters = { new MySqlParameter("@un", txtUsername.Text) };
-
-                try
-                {
-                    db.ExecuteNonQuery(sql, parameters);
-
-
-                    dgvUsers.Rows.Remove(dgvUsers.CurrentRow);
-
-                    MessageBox.Show("User has been deactivated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtUsername.Enabled = true;
-                    ClearAllFields();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error deactivating user: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvUsers.CurrentRow == null)
-            {
-                MessageBox.Show("Please select a user from the grid to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DialogResult dialog = MessageBox.Show("Are you sure you want to PERMANENTLY delete this record?",
-                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialog = MessageBox.Show($"Are you sure you want to permanently delete {txtUsername.Text}?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dialog == DialogResult.Yes)
             {
@@ -230,17 +202,21 @@ namespace Login_EDP
 
                 try
                 {
+
                     db.ExecuteNonQuery(sql, parameters);
 
-                    dgvUsers.Rows.Remove(dgvUsers.CurrentRow);
+                    if (dgvUsers.CurrentRow != null)
+                    {
+                        dgvUsers.Rows.Remove(dgvUsers.CurrentRow);
+                    }
 
-                    MessageBox.Show("Record deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("User has been permanently deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtUsername.Enabled = true;
                     ClearAllFields();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error deleting database record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error deleting user: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
